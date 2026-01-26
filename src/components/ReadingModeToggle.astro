@@ -1,0 +1,55 @@
+---
+interface Props {
+  currentMode: 'original' | 'companion' | 'side-by-side';
+  chapterSlug: string;
+}
+
+const { currentMode, chapterSlug } = Astro.props;
+
+const modes = [
+  { key: 'original',    label: 'Original',    href: `/read/original/${chapterSlug}/` },
+  { key: 'companion',   label: 'Companion',   href: `/chapters/${chapterSlug}/overview/` },
+  { key: 'side-by-side', label: 'Side-by-Side', href: `/read/side-by-side/${chapterSlug}/` },
+] as const;
+---
+
+<nav class="mode-toggle" aria-label="Reading mode">
+  {modes.map((m) => (
+    <a href={m.href} class:list={[{ active: currentMode === m.key }]}>
+      {m.label}
+    </a>
+  ))}
+</nav>
+
+<style>
+  .mode-toggle {
+    display: inline-flex;
+    border: 1px solid var(--reader-border, #232328);
+    border-radius: 999px;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+
+  .mode-toggle a {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.35rem 0.85rem;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--reader-text-muted, #888);
+    text-decoration: none;
+    transition: background 0.2s, color 0.2s;
+    white-space: nowrap;
+  }
+
+  .mode-toggle a:hover {
+    color: var(--reader-text, #e0e0e0);
+    background: rgba(255, 255, 255, 0.04);
+  }
+
+  .mode-toggle a.active {
+    background: var(--reader-accent, #64b5f6);
+    color: #000;
+    font-weight: 600;
+  }
+</style>

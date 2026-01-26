@@ -1,0 +1,117 @@
+---
+import ChapterNav from '../components/ChapterNav.astro';
+import ReadingModeToggle from '../components/ReadingModeToggle.astro';
+import '../styles/reader.css';
+
+interface ChapterInfo {
+  slug: string;
+  title: string;
+  chapter: number;
+}
+
+interface Props {
+  title: string;
+  bookTitle?: string;
+  chapterSlug: string;
+  mode: 'original' | 'companion' | 'side-by-side';
+  prevChapter?: ChapterInfo | null;
+  nextChapter?: ChapterInfo | null;
+  allChapters: ChapterInfo[];
+}
+
+const {
+  title,
+  bookTitle = 'The Society of Mind',
+  chapterSlug,
+  mode,
+  prevChapter = null,
+  nextChapter = null,
+  allChapters,
+} = Astro.props;
+
+function navHref(slug: string): string {
+  switch (mode) {
+    case 'original':
+      return `/read/original/${slug}/`;
+    case 'companion':
+      return `/chapters/${slug}/overview/`;
+    case 'side-by-side':
+      return `/read/side-by-side/${slug}/`;
+  }
+}
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title} | {bookTitle}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body class="reader-body">
+    <!-- ===== Top bar ===== -->
+    <header class="reader-topbar">
+      <a href="/" class="home-link">Home</a>
+      <span class="book-title">{bookTitle}</span>
+      <span class="chapter-title">{title}</span>
+      <span class="spacer"></span>
+      <ReadingModeToggle currentMode={mode} chapterSlug={chapterSlug} />
+    </header>
+
+    <!-- ===== Chapter nav sidebar ===== -->
+    <nav class="chapter-nav" id="chapter-nav">
+      <ChapterNav chapters={allChapters} currentSlug={chapterSlug} mode={mode} />
+    </nav>
+    <button class="chapter-nav-toggle" id="chapter-nav-toggle" aria-label="Toggle chapter list">
+      Chapters
+    </button>
+
+    <!-- ===== Main content ===== -->
+    <main class="reader-main">
+      <slot />
+    </main>
+
+    <!-- ===== Footer / pager ===== -->
+    <footer class="reader-footer">
+      <span>
+        {prevChapter && (
+          <a href={navHref(prevChapter.slug)}>&larr; {prevChapter.title}</a>
+        )}
+      </span>
+      <span>
+        {nextChapter && (
+          <a href={navHref(nextChapter.slug)}>{nextChapter.title} &rarr;</a>
+        )}
+      </span>
+    </footer>
+
+    <!-- ===== Chapter nav toggle script ===== -->
+    <script>
+      const nav = document.getElementById('chapter-nav');
+      const btn = document.getElementById('chapter-nav-toggle');
+      if (nav && btn) {
+        btn.addEventListener('click', () => {
+          nav.classList.toggle('open');
+        });
+
+        // Close sidebar when clicking outside
+        document.addEventListener('click', (e) => {
+          if (
+            nav.classList.contains('open') &&
+            !nav.contains(e.target as Node) &&
+            e.target !== btn
+          ) {
+            nav.classList.remove('open');
+          }
+        });
+      }
+    </script>
+  </body>
+</html>

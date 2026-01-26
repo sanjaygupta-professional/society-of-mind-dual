@@ -1,0 +1,85 @@
+---
+interface Chapter {
+  slug: string;
+  title: string;
+  chapter: number;
+}
+
+interface Props {
+  chapters: Chapter[];
+  currentSlug: string;
+  mode: 'original' | 'companion' | 'side-by-side';
+}
+
+const { chapters, currentSlug, mode } = Astro.props;
+
+const sorted = [...chapters].sort((a, b) => a.chapter - b.chapter);
+
+function chapterHref(slug: string): string {
+  switch (mode) {
+    case 'original':
+      return `/read/original/${slug}/`;
+    case 'companion':
+      return `/chapters/${slug}/overview/`;
+    case 'side-by-side':
+      return `/read/side-by-side/${slug}/`;
+  }
+}
+---
+
+<ul class="chapter-list">
+  {sorted.map((ch) => (
+    <li>
+      <a
+        href={chapterHref(ch.slug)}
+        class:list={[{ active: ch.slug === currentSlug }]}
+      >
+        <span class="ch-num">{ch.chapter}.</span>
+        <span class="ch-title">{ch.title}</span>
+      </a>
+    </li>
+  ))}
+</ul>
+
+<style>
+  .chapter-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .chapter-list li a {
+    display: flex;
+    gap: 0.5rem;
+    padding: 0.5rem 1.25rem;
+    font-size: 0.85rem;
+    color: var(--reader-text-muted, #888);
+    text-decoration: none;
+    transition: background 0.15s, color 0.15s;
+  }
+
+  .chapter-list li a:hover {
+    background: rgba(255, 255, 255, 0.04);
+    color: var(--reader-text, #e0e0e0);
+  }
+
+  .chapter-list li a.active {
+    color: var(--reader-accent, #64b5f6);
+    background: var(--reader-accent-low, rgba(100, 181, 246, 0.12));
+    font-weight: 600;
+  }
+
+  .ch-num {
+    flex-shrink: 0;
+    min-width: 1.6rem;
+    text-align: right;
+    opacity: 0.6;
+  }
+
+  .ch-title {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+</style>
