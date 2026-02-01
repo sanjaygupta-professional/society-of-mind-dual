@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Society of Mind - All Chapter Diagrams</title>
+  <style>
+    :root {
+      --bg: #1a1b26;
+      --fg: #a9b1d6;
+      --accent: #7aa2f7;
+      --surface: #24283b;
+      --border: #3d59a1;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--fg);
+      line-height: 1.6;
+      padding: 2rem;
+    }
+    header {
+      text-align: center;
+      margin-bottom: 3rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid var(--border);
+    }
+    h1 { font-size: 2rem; margin-bottom: 0.5rem; color: #fff; }
+    .subtitle { color: var(--fg); opacity: 0.8; }
+    .stats {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-top: 1rem;
+      font-size: 0.9rem;
+    }
+    .stat { background: var(--surface); padding: 0.5rem 1rem; border-radius: 6px; }
+    .stat strong { color: var(--accent); }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+      gap: 2rem;
+      max-width: 1600px;
+      margin: 0 auto;
+    }
+    .card {
+      background: var(--surface);
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+    .card-header {
+      padding: 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .chapter-num {
+      background: var(--accent);
+      color: var(--bg);
+      font-weight: 600;
+      padding: 0.25rem 0.75rem;
+      border-radius: 4px;
+      font-size: 0.8rem;
+    }
+    .chapter-title {
+      font-weight: 500;
+      margin-left: 1rem;
+      flex: 1;
+    }
+    .card-body {
+      padding: 1.5rem;
+      background: var(--bg);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 250px;
+    }
+    .card-body img {
+      max-width: 100%;
+      max-height: 300px;
+    }
+    .download-link {
+      font-size: 0.75rem;
+      color: var(--accent);
+      text-decoration: none;
+      opacity: 0.7;
+    }
+    .download-link:hover { opacity: 1; }
+    footer {
+      text-align: center;
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+      color: var(--fg);
+      opacity: 0.6;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Society of Mind - Chapter Diagrams</h1>
+    <p class="subtitle">All 30 chapters rendered with tokyo-night theme</p>
+    <div class="stats">
+      <span class="stat"><strong>30</strong> diagrams</span>
+      <span class="stat">Theme: <strong>tokyo-night</strong></span>
+      <span class="stat">Renderer: <strong>beautiful-mermaid</strong></span>
+    </div>
+  </header>
+
+  <div class="grid" id="gallery"></div>
+
+  <footer>
+    <p>Generated from Mermaid source in chapter overview files</p>
+  </footer>
+
+  <script>
+    const chapters = [
+      { num: '01', title: 'Building Blocks', file: 'ch01-building-blocks.svg' },
+      { num: '02', title: 'Wholes and Parts', file: 'ch02-wholes-and-parts.svg' },
+      { num: '03', title: 'Conflict and Compromise', file: 'ch03-conflict-and-compromise.svg' },
+      { num: '04', title: 'The Self', file: 'ch04-the-self.svg' },
+      { num: '05', title: 'Individuality', file: 'ch05-individuality.svg' },
+      { num: '06', title: 'Insight and Introspection', file: 'ch06-insight-and-introspection.svg' },
+      { num: '07', title: 'Problems and Goals', file: 'ch07-problems-and-goals.svg' },
+      { num: '08', title: 'A Theory of Memory', file: 'ch08-a-theory-of-memory.svg' },
+      { num: '09', title: 'Summaries', file: 'ch09-summaries.svg' },
+      { num: '10', title: 'Papert Principle', file: 'ch10-papert-principle.svg' },
+      { num: '11', title: 'The Shape of Space', file: 'ch11-the-shape-of-space.svg' },
+      { num: '12', title: 'Learning Meaning', file: 'ch12-learning-meaning.svg' },
+      { num: '13', title: 'Seeing and Believing', file: 'ch13-seeing-and-believing.svg' },
+      { num: '14', title: 'Reformulation', file: 'ch14-reformulation.svg' },
+      { num: '15', title: 'Consciousness and Memory', file: 'ch15-consciousness-and-memory.svg' },
+      { num: '16', title: 'Emotion', file: 'ch16-emotion.svg' },
+      { num: '17', title: 'Development', file: 'ch17-development.svg' },
+      { num: '18', title: 'Reasoning', file: 'ch18-reasoning.svg' },
+      { num: '19', title: 'Words and Ideas', file: 'ch19-words-and-ideas.svg' },
+      { num: '20', title: 'Context and Ambiguity', file: 'ch20-context-and-ambiguity.svg' },
+      { num: '21', title: 'Trans-Frames', file: 'ch21-trans-frames.svg' },
+      { num: '22', title: 'Expression', file: 'ch22-expression.svg' },
+      { num: '23', title: 'Comparisons', file: 'ch23-comparisons.svg' },
+      { num: '24', title: 'Frames', file: 'ch24-frames.svg' },
+      { num: '25', title: 'Frame-Arrays', file: 'ch25-frame-arrays.svg' },
+      { num: '26', title: 'Language Frames', file: 'ch26-language-frames.svg' },
+      { num: '27', title: 'Censors and Jokes', file: 'ch27-censors-and-jokes.svg' },
+      { num: '28', title: 'The Mind and the World', file: 'ch28-the-mind-and-the-world.svg' },
+      { num: '29', title: 'The Realms of Thought', file: 'ch29-the-realms-of-thought.svg' },
+      { num: '30', title: 'The Soul', file: 'ch30-the-soul.svg' },
+    ];
+
+    const gallery = document.getElementById('gallery');
+    chapters.forEach(ch => {
+      gallery.innerHTML += `
+        <div class="card">
+          <div class="card-header">
+            <span class="chapter-num">Ch ${ch.num}</span>
+            <span class="chapter-title">${ch.title}</span>
+            <a href="${ch.file}" download class="download-link">Download SVG</a>
+          </div>
+          <div class="card-body">
+            <img src="${ch.file}" alt="Chapter ${ch.num} diagram" />
+          </div>
+        </div>
+      `;
+    });
+  </script>
+</body>
+</html>

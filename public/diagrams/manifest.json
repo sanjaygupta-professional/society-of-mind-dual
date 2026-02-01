@@ -1,0 +1,336 @@
+{
+  "generated": "2026-02-01T18:47:18.784Z",
+  "theme": "tokyo-night",
+  "chapters": [
+    {
+      "id": "ch01",
+      "slug": "building-blocks",
+      "dir": "01-building-blocks",
+      "diagrams": [
+        {
+          "filename": "ch01-building-blocks.svg",
+          "success": true
+        }
+      ]
+    },
+    {
+      "id": "ch02",
+      "slug": "wholes-and-parts",
+      "dir": "02-wholes-and-parts",
+      "diagrams": [
+        {
+          "filename": "ch02-wholes-and-parts.svg",
+          "success": true
+        }
+      ]
+    },
+    {
+      "id": "ch03",
+      "slug": "conflict-and-compromise",
+      "dir": "03-conflict-and-compromise",
+      "diagrams": [
+        {
+          "filename": "ch03-conflict-and-compromise.svg",
+          "success": true
+        }
+      ]
+    },
+    {
+      "id": "ch04",
+      "slug": "the-self",
+      "dir": "04-the-self",
+      "diagrams": [
+        {
+          "filename": "ch04-the-self.svg",
+          "success": true
+        }
+      ]
+    },
+    {
+      "id": "ch05",
+      "slug": "individuality",
+      "dir": "05-individuality",
+      "diagrams": [
+        {
+          "filename": "ch05-individuality.svg",
+          "success": true
+        }
+      ]
+    },
+    {
+      "id": "ch06",
+      "slug": "insight-and-introspection",
+      "dir": "06-insight-and-introspection",
+      "diagrams": [
+        {
+          "filename": "ch06-insight-and-introspection.svg",
+          "success": true
+        }
+      ]
+    },
+    {
+      "id": "ch07",
+      "slug": "problems-and-goals",
+      "dir": "07-problems-and-goals",
+      "diagrams": [
+        {
+          "filename": "ch07-problems-and-goals.svg",
+          "success": true
+        }
+      ]
+    },
+    {
+      "id": "ch08",
+      "slug": "a-theory-of-memory",
+      "dir": "08-a-theory-of-memory",
+      "diagrams": [
+        {
+          "filename": "ch08-a-theory-of-memory.svg",
+          "success": true
+        }
+      ]
+    },
+    {
+      "id": "ch09",
+      "slug": "summaries",
+      "dir": "09-summaries",
+      "diagrams": [
+        {
+          "filename": "ch09-summaries.svg",
+          "success": true
+        }
+      ]
+    },
+    {
+      "id": "ch10",
+      "slug": "papert-principle",
+      "dir": "10-papert-principle",
+      "diagrams": [
+        {
+          "filename": "ch10-papert-principle.svg",
+          "success": true
+        }
+      ]
+    },
+    {
+      "id": "ch11",
+      "slug": "the-shape-of-space",
+      "dir": "11-the-shape-of-space",
+      "diagrams": [
+        {
+          "filename": "ch11-the-shape-of-space.svg",
+          "success": true
+        }
+      ]
+    },
+    {
+      "id": "ch12",
+      "slug": "learning-meaning",
+      "dir": "12-learning-meaning",
+      "diagrams": [
+        {
+          "filename": "ch12-learning-meaning.svg",
+          "success": true
+        }
+      ]
+    },
+    {
+      "id": "ch13",
+      "slug": "seeing-and-believing",
+      "dir": "13-seeing-and-believing",
+      "diagrams": [
+        {
+          "filename": "ch13-seeing-and-believing.svg",
+          "success": true
+        }
+      ]
+    },
+    {
+      "id": "ch14",
+      "slug": "reformulation",
+      "dir": "14-reformulation",
+      "diagrams": [
+        {
+          "filename": "ch14-reformulation.svg",
+          "success": true
+        }
+      ]
+    },
+    {
+      "id": "ch15",
+      "slug": "consciousness-and-memory",
+      "dir": "15-consciousness-and-memory",
+      "diagrams": [
+        {
+          "filename": "ch15-consciousness-and-memory.svg",
+          "success": true
+        }
+      ]
+    },
+    {
+      "id": "ch16",
+      "slug": "emotion",
+      "dir": "16-emotion",
+      "diagrams": [
+        {
+          "filename": "ch16-emotion.svg",
+          "success": true
+        }
+      ]
+    },
+    {
+      "id": "ch17",
+      "slug": "development",
+      "dir": "17-development",
+      "diagrams": [
+        {
+          "filename": "ch17-development.svg",
+          "success": true
+        }
+      ]
+    },
+    {
+      "id": "ch18",
+      "slug": "reasoning",
+      "dir": "18-reasoning",
+      "diagrams": [
+        {
+          "filename": "ch18-reasoning.svg",
+          "success": true
+        }
+      ]
+    },
+    {
+      "id": "ch19",
+      "slug": "words-and-ideas",
+      "dir": "19-words-and-ideas",
+      "diagrams": [
+        {
+          "filename": "ch19-words-and-ideas.svg",
+          "success": true
+        }
+      ]
+    },
+    {
+      "id": "ch20",
+      "slug": "context-and-ambiguity",
+      "dir": "20-context-and-ambiguity",
+      "diagrams": [
+        {
+          "filename": "ch20-context-and-ambiguity.svg",
+          "success": true
+        }
+      ]
+    },
+    {
+      "id": "ch21",
+      "slug": "trans-frames",
+      "dir": "21-trans-frames",
+      "diagrams": [
+        {
+          "filename": "ch21-trans-frames.svg",
+          "success": true
+        }
+      ]
+    },
+    {
+      "id": "ch22",
+      "slug": "expression",
+      "dir": "22-expression",
+      "diagrams": [
+        {
+          "filename": "ch22-expression.svg",
+          "success": true
+        }
+      ]
+    },
+    {
+      "id": "ch23",
+      "slug": "comparisons",
+      "dir": "23-comparisons",
+      "diagrams": [
+        {
+          "filename": "ch23-comparisons.svg",
+          "success": true
+        }
+      ]
+    },
+    {
+      "id": "ch24",
+      "slug": "frames",
+      "dir": "24-frames",
+      "diagrams": [
+        {
+          "filename": "ch24-frames.svg",
+          "success": true
+        }
+      ]
+    },
+    {
+      "id": "ch25",
+      "slug": "frame-arrays",
+      "dir": "25-frame-arrays",
+      "diagrams": [
+        {
+          "filename": "ch25-frame-arrays.svg",
+          "success": true
+        }
+      ]
+    },
+    {
+      "id": "ch26",
+      "slug": "language-frames",
+      "dir": "26-language-frames",
+      "diagrams": [
+        {
+          "filename": "ch26-language-frames.svg",
+          "success": true
+        }
+      ]
+    },
+    {
+      "id": "ch27",
+      "slug": "censors-and-jokes",
+      "dir": "27-censors-and-jokes",
+      "diagrams": [
+        {
+          "filename": "ch27-censors-and-jokes.svg",
+          "success": true
+        }
+      ]
+    },
+    {
+      "id": "ch28",
+      "slug": "the-mind-and-the-world",
+      "dir": "28-the-mind-and-the-world",
+      "diagrams": [
+        {
+          "filename": "ch28-the-mind-and-the-world.svg",
+          "success": true
+        }
+      ]
+    },
+    {
+      "id": "ch29",
+      "slug": "the-realms-of-thought",
+      "dir": "29-the-realms-of-thought",
+      "diagrams": [
+        {
+          "filename": "ch29-the-realms-of-thought.svg",
+          "success": true
+        }
+      ]
+    },
+    {
+      "id": "ch30",
+      "slug": "the-soul",
+      "dir": "30-the-soul",
+      "diagrams": [
+        {
+          "filename": "ch30-the-soul.svg",
+          "success": true
+        }
+      ]
+    }
+  ]
+}
