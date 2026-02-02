@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Society of Mind × Beautiful-Mermaid Theme Pilot</title>
+  <style>
+    :root {
+      --bg-primary: #0d1117;
+      --bg-secondary: #161b22;
+      --bg-tertiary: #21262d;
+      --text-primary: #e6edf3;
+      --text-secondary: #8b949e;
+      --border: #30363d;
+      --accent: #58a6ff;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    header {
+      background: var(--bg-secondary);
+      border-bottom: 1px solid var(--border);
+      padding: 2rem;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 1.75rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .subtitle {
+      color: var(--text-secondary);
+      font-size: 1rem;
+    }
+
+    main {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+
+    .chapter-section {
+      margin-bottom: 3rem;
+    }
+
+    .chapter-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .chapter-number {
+      background: var(--accent);
+      color: var(--bg-primary);
+      font-weight: 600;
+      padding: 0.25rem 0.75rem;
+      border-radius: 4px;
+      font-size: 0.875rem;
+    }
+
+    .chapter-title {
+      font-size: 1.25rem;
+      font-weight: 500;
+    }
+
+    .comparison-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    @media (max-width: 900px) {
+      .comparison-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .theme-card {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .theme-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.75rem 1rem;
+      background: var(--bg-tertiary);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .theme-name {
+      font-weight: 600;
+      font-size: 0.875rem;
+      text-transform: capitalize;
+    }
+
+    .theme-badge {
+      font-size: 0.75rem;
+      padding: 0.125rem 0.5rem;
+      border-radius: 3px;
+      background: var(--border);
+      color: var(--text-secondary);
+    }
+
+    .theme-badge.dark { background: #1a1b26; color: #a9b1d6; }
+    .theme-badge.light { background: #eceff4; color: #2e3440; }
+
+    .svg-container {
+      padding: 1.5rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 300px;
+      background: var(--bg-primary);
+    }
+
+    .svg-container img,
+    .svg-container object {
+      max-width: 100%;
+      max-height: 400px;
+    }
+
+    .code-section {
+      margin-top: 1.5rem;
+    }
+
+    .code-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.5rem 1rem;
+      background: var(--bg-tertiary);
+      border: 1px solid var(--border);
+      border-radius: 6px 6px 0 0;
+      cursor: pointer;
+    }
+
+    .code-header:hover {
+      background: var(--border);
+    }
+
+    .code-label {
+      font-size: 0.875rem;
+      font-weight: 500;
+    }
+
+    .toggle-icon {
+      transition: transform 0.2s;
+    }
+
+    .code-header.collapsed .toggle-icon {
+      transform: rotate(-90deg);
+    }
+
+    .code-content {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-top: none;
+      border-radius: 0 0 6px 6px;
+      overflow: hidden;
+    }
+
+    .code-content.hidden {
+      display: none;
+    }
+
+    pre {
+      padding: 1rem;
+      overflow-x: auto;
+      font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+      font-size: 0.8125rem;
+      line-height: 1.5;
+      color: var(--text-primary);
+      margin: 0;
+    }
+
+    .ascii-section {
+      margin-top: 1rem;
+    }
+
+    .ascii-pre {
+      background: #000;
+      color: #0f0;
+      padding: 1rem;
+      border-radius: 6px;
+      font-size: 0.75rem;
+      line-height: 1.2;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      color: var(--text-secondary);
+      font-size: 0.875rem;
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+    }
+
+    .legend {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-bottom: 2rem;
+      padding: 1rem;
+      background: var(--bg-secondary);
+      border-radius: 8px;
+      border: 1px solid var(--border);
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.875rem;
+    }
+
+    .legend-swatch {
+      width: 20px;
+      height: 20px;
+      border-radius: 4px;
+      border: 1px solid var(--border);
+    }
+
+    .legend-swatch.tokyo-night { background: #1a1b26; }
+    .legend-swatch.nord { background: #2e3440; }
+
+    .error-message {
+      color: #f85149;
+      text-align: center;
+      padding: 2rem;
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Society of Mind × Beautiful-Mermaid</h1>
+    <p class="subtitle">Theme Pilot: Comparing tokyo-night vs nord for chapter diagrams</p>
+  </header>
+
+  <main>
+    <div class="legend">
+      <div class="legend-item">
+        <div class="legend-swatch tokyo-night"></div>
+        <span><strong>tokyo-night</strong> — Deep blue, soft purple accent (#1a1b26)</span>
+      </div>
+      <div class="legend-item">
+        <div class="legend-swatch nord"></div>
+        <span><strong>nord</strong> — Arctic blue-gray, frost accent (#2e3440)</span>
+      </div>
+    </div>
+
+    <section class="chapter-section" id="ch01">
+      <div class="chapter-header">
+        <span class="chapter-number">Ch 1</span>
+        <h2 class="chapter-title">Building Blocks — Agent Hierarchy</h2>
+      </div>
+
+      <div class="comparison-grid">
+        <div class="theme-card">
+          <div class="theme-header">
+            <span class="theme-name">tokyo-night</span>
+            <span class="theme-badge dark">dark</span>
+          </div>
+          <div class="svg-container">
+            <object type="image/svg+xml" data="output/ch01-building-blocks-tokyo-night.svg">
+              <p class="error-message">SVG not found. Run <code>node generate.mjs</code> first.</p>
+            </object>
+          </div>
+        </div>
+
+        <div class="theme-card">
+          <div class="theme-header">
+            <span class="theme-name">nord</span>
+            <span class="theme-badge dark">dark</span>
+          </div>
+          <div class="svg-container">
+            <object type="image/svg+xml" data="output/ch01-building-blocks-nord.svg">
+              <p class="error-message">SVG not found. Run <code>node generate.mjs</code> first.</p>
+            </object>
+          </div>
+        </div>
+      </div>
+
+      <div class="code-section">
+        <div class="code-header" onclick="toggleCode(this)">
+          <span class="code-label">📄 Mermaid Source</span>
+          <span class="toggle-icon">▼</span>
+        </div>
+        <div class="code-content">
+          <pre>flowchart TB
+    B[Builder Agent] --> F[Find Agent]
+    B --> G[Grasp Agent]
+    B --> P[Place Agent]
+    F --> S[See Agent]
+    G --> M[Move Agent]
+    P --> R[Release Agent]
+    S --> E[Eyes]
+    M --> H[Hand]</pre>
+        </div>
+      </div>
+
+      <div class="ascii-section">
+        <div class="code-header collapsed" onclick="toggleCode(this)">
+          <span class="code-label">🖥️ ASCII Preview</span>
+          <span class="toggle-icon">▼</span>
+        </div>
+        <div class="code-content hidden" id="ch01-ascii">
+          <pre class="ascii-pre">Loading...</pre>
+        </div>
+      </div>
+    </section>
+
+    <section class="chapter-section" id="ch08">
+      <div class="chapter-header">
+        <span class="chapter-number">Ch 8</span>
+        <h2 class="chapter-title">A Theory of Memory — K-line Flow</h2>
+      </div>
+
+      <div class="comparison-grid">
+        <div class="theme-card">
+          <div class="theme-header">
+            <span class="theme-name">tokyo-night</span>
+            <span class="theme-badge dark">dark</span>
+          </div>
+          <div class="svg-container">
+            <object type="image/svg+xml" data="output/ch08-theory-of-memory-tokyo-night.svg">
+              <p class="error-message">SVG not found. Run <code>node generate.mjs</code> first.</p>
+            </object>
+          </div>
+        </div>
+
+        <div class="theme-card">
+          <div class="theme-header">
+            <span class="theme-name">nord</span>
+            <span class="theme-badge dark">dark</span>
+          </div>
+          <div class="svg-container">
+            <object type="image/svg+xml" data="output/ch08-theory-of-memory-nord.svg">
+              <p class="error-message">SVG not found. Run <code>node generate.mjs</code> first.</p>
+            </object>
+          </div>
+        </div>
+      </div>
+
+      <div class="code-section">
+        <div class="code-header" onclick="toggleCode(this)">
+          <span class="code-label">📄 Mermaid Source</span>
+          <span class="toggle-icon">▼</span>
+        </div>
+        <div class="code-content">
+          <pre>flowchart TB
+    EXP[Experience] --> A1[Agent 1 Active]
+    EXP --> A2[Agent 2 Active]
+    EXP --> A3[Agent 3 Active]
+    A1 --> K[K-line Created]
+    A2 --> K
+    A3 --> K
+    K -->|later| R1[Reactivate Agent 1]
+    K -->|later| R2[Reactivate Agent 2]
+    K -->|later| R3[Reactivate Agent 3]
+    R1 --> M[Memory Reconstructed]
+    R2 --> M
+    R3 --> M</pre>
+        </div>
+      </div>
+
+      <div class="ascii-section">
+        <div class="code-header collapsed" onclick="toggleCode(this)">
+          <span class="code-label">🖥️ ASCII Preview</span>
+          <span class="toggle-icon">▼</span>
+        </div>
+        <div class="code-content hidden" id="ch08-ascii">
+          <pre class="ascii-pre">Loading...</pre>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Society of Mind × Beautiful-Mermaid Theme Pilot</p>
+    <p>Compare themes, then decide which to adopt for the full project.</p>
+  </footer>
+
+  <script>
+    function toggleCode(header) {
+      const content = header.nextElementSibling;
+      header.classList.toggle('collapsed');
+      content.classList.toggle('hidden');
+    }
+
+    // Load ASCII files
+    async function loadAscii() {
+      const files = [
+        { id: 'ch01-ascii', file: 'output/ch01-building-blocks-ascii.txt' },
+        { id: 'ch08-ascii', file: 'output/ch08-theory-of-memory-ascii.txt' },
+      ];
+
+      for (const { id, file } of files) {
+        try {
+          const res = await fetch(file);
+          if (res.ok) {
+            const text = await res.text();
+            document.querySelector(`#${id} pre`).textContent = text;
+          }
+        } catch (e) {
+          document.querySelector(`#${id} pre`).textContent = 'ASCII not generated yet.';
+        }
+      }
+    }
+
+    loadAscii();
+  </script>
+</body>
+</html>

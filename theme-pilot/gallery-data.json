@@ -1,0 +1,39 @@
+{
+  "generated": "2026-02-01T18:37:15.353Z",
+  "diagrams": [
+    {
+      "id": "ch01-building-blocks",
+      "title": "Chapter 1: Building Blocks",
+      "code": "flowchart TB\n    B[Builder Agent] --> F[Find Agent]\n    B --> G[Grasp Agent]\n    B --> P[Place Agent]\n    F --> S[See Agent]\n    G --> M[Move Agent]\n    P --> R[Release Agent]\n    S --> E[Eyes]\n    M --> H[Hand]",
+      "files": [
+        {
+          "theme": "tokyo-night",
+          "svg": "output/ch01-building-blocks-tokyo-night.svg",
+          "ascii": "output/ch01-building-blocks-ascii.txt"
+        },
+        {
+          "theme": "nord",
+          "svg": "output/ch01-building-blocks-nord.svg",
+          "ascii": "output/ch01-building-blocks-ascii.txt"
+        }
+      ]
+    },
+    {
+      "id": "ch08-theory-of-memory",
+      "title": "Chapter 8: A Theory of Memory",
+      "code": "flowchart TB\n    EXP[Experience] --> A1[Agent 1 Active]\n    EXP --> A2[Agent 2 Active]\n    EXP --> A3[Agent 3 Active]\n    A1 --> K[K-line Created]\n    A2 --> K\n    A3 --> K\n    K -->|later| R1[Reactivate Agent 1]\n    K -->|later| R2[Reactivate Agent 2]\n    K -->|later| R3[Reactivate Agent 3]\n    R1 --> M[Memory Reconstructed]\n    R2 --> M\n    R3 --> M",
+      "files": [
+        {
+          "theme": "tokyo-night",
+          "svg": "output/ch08-theory-of-memory-tokyo-night.svg",
+          "ascii": "output/ch08-theory-of-memory-ascii.txt"
+        },
+        {
+          "theme": "nord",
+          "svg": "output/ch08-theory-of-memory-nord.svg",
+          "ascii": "output/ch08-theory-of-memory-ascii.txt"
+        }
+      ]
+    }
+  ]
+}
