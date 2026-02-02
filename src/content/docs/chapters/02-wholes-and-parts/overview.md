@@ -22,7 +22,7 @@ flowchart TB
 
 <!-- beautiful-mermaid comparison -->
 <div style="margin-top: 1.5rem; padding: 1rem; background: #1a1b26; border-radius: 8px;">
-  <p style="color: #7aa2f7; font-size: 0.85rem; margin-bottom: 0.75rem; font-weight: 500;">Tokyo-night theme (beautiful-mermaid):</p>
+  <p style="color: #7aa2f7; font-size: 0.85rem; margin-bottom: 0.75rem; font-weight: 500;">Task Decomposition: Whole → Sub-problems → Agents</p>
   <img src="/diagrams/ch02-wholes-and-parts.svg" alt="Chapter diagram - tokyo-night theme" style="max-width: 100%; height: auto;" />
 </div>
 <!-- end beautiful-mermaid comparison -->
